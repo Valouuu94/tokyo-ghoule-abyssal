@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-clips-page',
   standalone: true,
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './clips-page.component.html',
   styleUrl: './clips-page.component.scss'
 })
