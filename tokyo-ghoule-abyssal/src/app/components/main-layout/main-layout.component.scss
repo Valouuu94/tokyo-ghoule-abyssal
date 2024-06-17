@@ -1,7 +1,7 @@
 .main-layout-content{
     width: 100%;
-    margin: 10px;
     height: 100%;
+margin: 50px;
 }
 
 .header {
@@ -11,20 +11,20 @@
     flex-direction: column;
     background-color: #201f17;
     height: 250px;
-    color: #c4c3ae;
+    color: #F5F5F5;
 }
 
 .header-title {
     font-size: 160px;
     font-weight: bold;
-    font-family: '"Courier New", Courier, monospace',;
+    font-family: "Big Shoulders Stencil Text", sans-serif;
     letter-spacing: 10px;
 }
 
 .header-sub-title {
     font-size: 30px;
     font-weight: bold;
-    font-family: '"Courier New", Courier, monospace',;
+    font-family: "Big Shoulders Stencil Text", sans-serif;
     letter-spacing: 5px;
 }
 
@@ -36,5 +36,8 @@
     height: 610px;
     border-left: 5px solid #201f17;
     border-right: 5px solid #201f17;
+}
 
+.presentation-title{
+    font-family: "Big Shoulders Stencil Text", sans-serif;
 }
