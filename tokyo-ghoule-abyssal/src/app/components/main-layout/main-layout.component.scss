@@ -1,11 +1,7 @@
 .main-layout-content{
     width: 100%;
     margin: 10px;
-    & img {
-    width: 300px;
-height: 300px;
-
-    }
+    height: 100%;
 }
 
 .header {
@@ -19,7 +15,7 @@ height: 300px;
 }
 
 .header-title {
-    font-size: 80px;
+    font-size: 160px;
     font-weight: bold;
     font-family: '"Courier New", Courier, monospace',;
     letter-spacing: 10px;
@@ -30,4 +26,15 @@ height: 300px;
     font-weight: bold;
     font-family: '"Courier New", Courier, monospace',;
     letter-spacing: 5px;
+}
+
+.background-image {
+    background-image: url('../../medias/Header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 610px;
+    border-left: 5px solid #201f17;
+    border-right: 5px solid #201f17;
+
 }
