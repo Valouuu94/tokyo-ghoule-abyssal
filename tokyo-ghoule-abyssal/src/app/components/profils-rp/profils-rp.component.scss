@@ -14,3 +14,14 @@
     font-style: normal;
 }
 
+::ng-deep .p-checkbox {
+    & .p-checkbox-box.p-highlight {
+        background-color: #CC001E !important;
+        background: #CC001E !important;
+        border-color: #CC001E !important;
+   }
+    & .p-checkbox-box.p-focus {
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+}
