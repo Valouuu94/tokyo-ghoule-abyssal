@@ -1,7 +1,5 @@
 .main-layout-content{
-    width: 100%;
-    height: 100%;
-margin: 50px;
+    margin: 50px;
 }
 
 .header {
@@ -29,13 +27,12 @@ margin: 50px;
 }
 
 .background-image {
-    background-image: url('../../medias/Header.jpg');
+    background-image: url('../../medias/header_1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     height: 610px;
-    border-left: 5px solid #201f17;
-    border-right: 5px solid #201f17;
+    border: 5px solid #201f17;
 }
 
 .presentation-title{
