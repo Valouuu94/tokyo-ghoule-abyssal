@@ -1,16 +1,19 @@
 <div class="justify-content-center">
     <h1 class="text-center">CLIPS</h1>
-    <!-- <div class="flex align-items-center justify-content-center">
-        <video width="640" height="360" controls autoplay>
-            <source src="https://production.assets.clips.twitchcdn.net/Q4J9GSTfS1dSrUs8r0vgWw/AT-cm%7CQ4J9GSTfS1dSrUs8r0vgWw.mp4?sig=ecc1c0340f802f2b0b090eaf048cccc58d5705ab&token=%7B%22authorization%22%3A%7B%22forbidden%22%3Afalse%2C%22reason%22%3A%22%22%7D%2C%22clip_uri%22%3A%22https%3A%2F%2Fproduction.assets.clips.twitchcdn.net%2FQ4J9GSTfS1dSrUs8r0vgWw%2FAT-cm%257CQ4J9GSTfS1dSrUs8r0vgWw.mp4%22%2C%22clip_slug%22%3A%22KawaiiTenaciousShieldOSfrog-JN9LV1KtSzyvS-Bb%22%2C%22device_id%22%3A%22yXLI3Mweqgfkh2qdtIZHxiycCKizU7V7%22%2C%22expires%22%3A1718650155%2C%22user_id%22%3A%22451439086%22%2C%22version%22%3A2%7D" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div *ngFor="let clip of clips">
-            <h2>{{ clip.title }}</h2>
-            <a [href]="clip.url">{{ clip.url }}</a>
-        </div> 
-    </div> -->
-    <div class="main-quotation" *ngFor="let clip of otherClips">
-        <h2>{{ clip.title }}</h2>
+    <div *ngIf="clips$ | async as clips; else loading">
+        <ul class="text-center">
+            <li *ngFor="let clip of clips">
+                <h3>{{ clip.title }}</h3>
+                <video width="640" height="360" controls autoplay>
+                    <source src="{{ clip.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Likes: {{ clip.likes }}</p>
+                <p>Reports: {{ clip.report }}</p>
+            </li>
+        </ul>
     </div>
+    <ng-template #loading>
+        <p>Loading...</p>
+    </ng-template>
 </div>
