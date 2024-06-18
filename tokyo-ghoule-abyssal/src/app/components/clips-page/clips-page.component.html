@@ -1,18 +1,42 @@
 <div class="justify-content-center">
-    <h1 class="text-center">CLIPS</h1>
-    <div *ngIf="clips$ | async as clips; else loading">
-        <ul class="text-center">
-            <li *ngFor="let clip of clips">
-                <h3>{{ clip.title }}</h3>
-                <video width="640" height="360" controls autoplay>
-                    <source src="{{ clip.url }}" type="video/mp4">
+    <div class="flex align-content-center justify-content-center align-items-center">
+        <p>Clip unique</p>
+        <p-inputSwitch [(ngModel)]="isAllClips" class="px-3"/>
+        <p>Tous les clips</p>  
+    </div>
+
+    <button [routerLink]="['/clips/add-clip']">Ajouter un clip</button>
+
+    <div *ngIf="!isAllClips">
+        <div *ngIf="currentClip as clip; else loading" class="flex align-content-center justify-content-center">
+            <div>
+                <h3 class="text-center">{{ clip.title }}</h3>
+                <video width="640" height="360" controls autoplay [src]="clip.url">
                     Your browser does not support the video tag.
                 </video>
                 <p>Likes: {{ clip.likes }}</p>
                 <p>Reports: {{ clip.report }}</p>
-            </li>
-        </ul>
+            </div>
+        </div>
+        <div class="flex align-content-center justify-content-center">
+            <button (click)="showPreviousClip()" [disabled]="currentClipIndex === 0">Previous</button>
+            <button (click)="showNextClip()">Next</button>
+        </div>
     </div>
+
+    <div *ngIf="isAllClips">
+        <div *ngFor="let clip of clips">
+            <div>
+                <h3>{{ clip.title }}</h3>
+                <video width="640" height="360" controls [attr.loading]="'lazy'" [src]="clip.url">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Likes: {{ clip.likes }}</p>
+                <p>Reports: {{ clip.report }}</p>
+            </div>
+        </div>
+    </div>
+
     <ng-template #loading>
         <p>Loading...</p>
     </ng-template>
