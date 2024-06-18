@@ -10,9 +10,18 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #1C1C1C;
+    width: 100%;
+    min-height: 100vh;
     margin: 0;
+    background-image: url('../src/app/medias/Background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 .font-manga{
-    font-family: "Big Shoulders Stencil Text", sans-serif;
+    font-family: "Yuji Syuku", serif;
+    font-weight: 400;
+    font-style: normal;
 }

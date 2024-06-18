@@ -1,0 +1,27 @@
+::ng-deep .p-checkbox{
+    width: 30px !important;
+    height: 30px !important;
+    & .p-checkbox-box{
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+::ng-deep .p-checkbox-label {
+    font-size: 28px !important;
+    font-family: "Yuji Syuku", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+::ng-deep .p-checkbox {
+    & .p-checkbox-box.p-highlight {
+        background-color: #7A0014 !important;
+        background: #7A0014 !important;
+        border-color: #7A0014 !important;
+   }
+    & .p-checkbox-box.p-focus {
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+}

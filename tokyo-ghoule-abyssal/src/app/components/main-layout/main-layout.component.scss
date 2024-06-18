@@ -1,7 +1,5 @@
 .main-layout-content{
-    width: 100%;
-    height: 100%;
-margin: 50px;
+    margin: 50px;
 }
 
 .header {
@@ -10,34 +8,37 @@ margin: 50px;
     align-items: center;
     flex-direction: column;
     background-color: #201f17;
-    height: 250px;
+    height: 300px;
     color: #F5F5F5;
 }
 
 .header-title {
     font-size: 160px;
     font-weight: bold;
-    font-family: "Big Shoulders Stencil Text", sans-serif;
+    font-family: "Yuji Syuku", serif;
+    font-style: normal;
     letter-spacing: 10px;
 }
 
 .header-sub-title {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Big Shoulders Stencil Text", sans-serif;
-    letter-spacing: 5px;
+    font-size: 40px;
+    letter-spacing: 2px;
 }
 
 .background-image {
-    background-image: url('../../medias/Header.jpg');
+    background-image: url('../../medias/header_1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     height: 610px;
-    border-left: 5px solid #201f17;
-    border-right: 5px solid #201f17;
+    border: 5px solid #201f17;
 }
 
 .presentation-title{
-    font-family: "Big Shoulders Stencil Text", sans-serif;
+    font-family: "Yuji Syuku", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.img-homepage-presentation{
+    height: 695px;
 }
