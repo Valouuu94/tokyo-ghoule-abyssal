@@ -34,11 +34,59 @@
     border: 5px solid #201f17;
 }
 
-.presentation-title{
-    font-family: "Yuji Syuku", serif;
-    font-weight: 400;
-    font-style: normal;
-}
 .img-homepage-presentation{
     height: 695px;
+}
+
+.banner-join-us{
+    background-color: #201f17;
+    color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+.div-invite-discord{
+    background-color: #313338;
+    height: 350px;
+    width: 500px;
+}
+.btn-invite-discord{
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.logo-discord-abyssal{
+    height: 90px;
+    width: 90px;
+    border-radius: 20px;
+}
+.container-btn-invite-discord{
+    background-color: #5865f2;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.joins-us{
+    margin: 0 11% 0 11%;
+}
+.img-kaneki-joins-us-left{
+    height: 432px;
+    margin-bottom: 79px;
+    margin-left: 3%;
+    margin-right: 9%;
+    transform: scaleX(-1);
+}
+.img-kaneki-joins-us-right{
+    height: 432px;
+    margin-bottom: 79px;
+    margin-left: 9%;
+    margin-right: 3%;
+
 }
