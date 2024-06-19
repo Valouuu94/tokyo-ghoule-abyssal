@@ -25,3 +25,41 @@
         border-color: transparent !important;
     }
 }
+
+.background-image {
+    background-image: url('../../medias/background-header-profils.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 610px;
+    border: 5px solid #201f17;
+}
+
+.card-ccg{
+    background-image: url('../../medias/card-profil-ccg-empty.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 510px;
+    height: 335px;
+    & .card-ccg-image{
+        width: 120px;
+        height: 130px;
+        border: 2px solid #7A0014;
+    }
+}
+
+.card-humans{
+    background-image: url('../../medias/card-human-profil.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 510px;
+    height: 335px;
+    & .card-humans-image{
+        width: 120px;
+        height: 130px;
+        border: 2px solid #7A0014;
+    }
+}
+
