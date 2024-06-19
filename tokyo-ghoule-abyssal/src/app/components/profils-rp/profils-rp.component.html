@@ -1,42 +1,78 @@
 <div class="profils-rp-component">
     <div class="background-image w-full"></div>
     <div class="profils-rp-nav flex flex-row justify-content-center gap-6 mt-6">
-        <p-checkbox label="ghouls" [(ngModel)]="showGhoul" [binary]="true" inputId="ghoulsCheckbox" />
+        <p-checkbox label="Ghouls" [(ngModel)]="showGhoul" [binary]="true" inputId="ghoulsCheckbox" />
         <p-checkbox label="CCG" [(ngModel)]="showCCG" [binary]="true" inputId="ccgCheckbox" />
-        <p-checkbox label="humans" [(ngModel)]="showHuman" [binary]="true" inputId="humansCheckbox" />
+        <p-checkbox label="Humains" [(ngModel)]="showHuman" [binary]="true" inputId="humansCheckbox" />
+        <a routerLink="create" class="nav-btn no-underline px-6 pt-2 pb-3 font-manga"> Créer ton profil !</a>
+
     </div>
     <div class="separator my-8"></div>
-    <div  class="profils-rp-container-ccg flex justify-content-center flex-column align-items-center">
+
+    <div *ngIf="showCCG" class="profils-rp-container-ccg flex justify-content-center flex-column align-items-center">
         <h2 class="font-manga text-3xl font-red-bold"> C.C.G </h2>
-        <div class="card-ccg flex flex-row align-items-center justify-content-left mt-2">
-            <div class="card-ccg-image mx-3"></div>
-            <div class="card-ccg-content flex flex-column align-items-left">
-                <p class="font-manga font-red-bold">Nom Prénom :</p> 
-                <p class="font-manga font-red-bold">Rang :</p>
-                <p class="font-manga font-red-bold">Date de naissance :</p>
+        <div class="flex flex-row align-items-center gap-4">
+            <div *ngFor="let profile of ccgProfiles" class="card-ccg card flex flex-row align-items-center justify-content-left mt-2">
+                <div class="card-face card-front">
+                    <div class="card-ccg-image mx-3">
+                        <img [src]="profile.imageUrl" alt="Profile Image">
+                    </div>
+                    <div class="card-ccg-content flex flex-column align-items-left">
+                        <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
+                        <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
+                        <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
+                    </div>
+                </div>
+                <div class="card-face card-back">
+                    <!-- Contenu de la face arrière -->
+                    <p class="font-manga font-red-bold">Infos supplémentaires...</p>
+                </div>
             </div>
         </div>
     </div>
-    <div  class="profils-rp-container-ghouls flex justify-content-center flex-column align-items-center">
+
+    <div *ngIf="showGhoul" class="profils-rp-container-ghouls flex justify-content-center flex-column align-items-center">
         <h2 class="font-manga text-3xl font-red-bold"> Ghouls </h2>
-        <div class="card-ghouls flex flex-row align-items-center justify-content-left mt-2">
-            <div class="card-ghouls-image mx-3"></div>
-            <div class="card-ghouls-content flex flex-column align-items-left">
-                <p class="font-manga font-red-bold">Nom Prénom :</p> 
-                <p class="font-manga font-red-bold">Rang :</p>
-                <p class="font-manga font-red-bold">Date de naissance :</p>
+        <div class="flex flex-row align-items-center gap-6 flex-wrap">
+            <div *ngFor="let profile of ghoulProfiles" class="card-ghouls card flex flex-row align-items-center justify-content-left mt-2">
+                <div class="card-face card-front flex flex-row align-items-center">
+                    <div class="card-ghouls-image mx-3">
+                        <img [src]="profile.image" alt="Profile Image" class="img-card">
+                    </div>
+                    <div class="card-ghouls-content flex flex-column align-items-left">
+                        <p class="font-manga text-white">Nom Prénom : {{ profile.name }}</p>
+                        <p class="font-manga text-white">Rang : {{ profile.rank }}</p>
+                        <p class="font-manga text-white">Date de naissance : {{ profile.datebirth }}</p>
+                    </div>
+                </div>
+                <div class="card-face card-back">
+                    <div class="card-humans-content flex flex-column align-items-left px-4">
+                        <p class="font-manga text-white flex justify-content-center">Informations :</p>
+                        <p class="font-manga text-white">Kagune : {{ profile.kagune }}</p>
+                        <p class="font-manga text-white">Type Kagune : {{ profile.typeKagune }}</p>
+
+                        <p class="font-manga text-white">Caractere : {{ profile.caractere }}</p>
+                        <p class="font-manga text-white">Description: {{ profile.description }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="profils-rp-container-humans flex justify-content-center flex-column align-items-center">
+
+    <div *ngIf="showHuman" class="profils-rp-container-humans flex justify-content-center flex-column align-items-center">
         <h2 class="font-manga text-3xl font-red-bold"> Humains </h2>
-        <div class="card-humans flex flex-row align-items-center justify-content-left mt-2">
-            <div class="card-humans-image mx-3"></div>
-            <div class="card-humans-content flex flex-column align-items-left">
-                <p class="font-manga font-red-bold">Nom Prénom :</p> 
-                <p class="font-manga font-red-bold">Rang :</p>
-                <p class="font-manga font-red-bold">Date de naissance :</p>
+        <div class="flex flex-row align-items-center gap-4">
+            <div *ngFor="let profile of humanProfiles" class="card-humans card flex flex-row align-items-center justify-content-left mt-2">
+                <div class="card-humans-image mx-3">
+                    <img [src]="profile.imageUrl" alt="Profile Image">
+                </div>
+                <div class="card-humans-content flex flex-column align-items-left">
+                    <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
+                    <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
+                    <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
+                </div>
             </div>
         </div>
     </div>
+    <router-outlet></router-outlet>
 </div>

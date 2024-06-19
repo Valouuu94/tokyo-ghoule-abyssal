@@ -16,6 +16,7 @@ export class ClipsService {
     }
 
     getAll(): AngularFirestoreCollection<Clip> {
+        console.log('ClipsService.getAll()', this.clipsRef);
         return this.clipsRef;
     }
 }
