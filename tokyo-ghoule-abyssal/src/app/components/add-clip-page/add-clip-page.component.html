@@ -2,23 +2,15 @@
 
 <div class="flex-column justify-content-center">
     <div class="flex flex-column gap-2 pb-3">
-        <label for="clip-title">Titre de votre clip</label>
-        <input 
-            pInputText
-            id="clip-title" 
-            aria-describedby="clip-title-help" 
-            [(ngModel)]="value" />
-    </div>
-    <div class="flex flex-column gap-2 pb-3">
         <label for="clip-url">URL du clip Twitch</label>
         <input 
             pInputText
             id="clip-url" 
             aria-describedby="clip-url-help" 
-            [(ngModel)]="value" />
+            [(ngModel)]="clipUrl" />
     </div>
     <div class="flex justify-content-center">
         <button>ANNULER</button>
-        <button>AJOUTER</button>
+        <button (click)="addClip()">AJOUTER</button>
     </div>
 </div>
