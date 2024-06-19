@@ -24,9 +24,9 @@
         </div>
     </div>
 
-    <div *ngIf="isAllClips">
-        <div *ngFor="let clip of clips">
-            <div>
+    <div *ngIf="isAllClips" class="grid">
+        <div *ngFor="let clip of clips" class="flex col justify-content-center">
+            <div >
                 <h3>{{ clip.title }}</h3>
                 <video width="640" height="360" controls [attr.loading]="'lazy'" [src]="clip.url">
                     Your browser does not support the video tag.
