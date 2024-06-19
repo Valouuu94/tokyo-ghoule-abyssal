@@ -1,7 +1,6 @@
 export interface Clip {
-    id: number;
+    clipSlug: string;
     title: string;
-    url: string;
     likes: number;
     report: number;
 }

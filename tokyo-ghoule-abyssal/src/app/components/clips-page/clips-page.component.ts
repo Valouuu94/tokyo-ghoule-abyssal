@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-clips-page',
@@ -37,7 +38,7 @@ export class ClipsPageComponent implements OnInit {
   isAllClips: boolean = false;
   addClipVisible: boolean = false;
 
-  constructor(private firestore: Firestore) {
+  constructor(private firestore: Firestore, private sanitizer: DomSanitizer) {
     const clipsCollection = collection(this.firestore, 'clips');
     this.clips$ = collectionData(clipsCollection).pipe(
       map(data => data as Clip[])
@@ -53,10 +54,6 @@ export class ClipsPageComponent implements OnInit {
       }
     });
   }
-
-  showDialog() {
-    this.addClipVisible = true;
-}
 
   shuffleIndices(): void {
     this.shuffledIndices = Array.from(Array(this.clips.length).keys());
@@ -85,5 +82,10 @@ export class ClipsPageComponent implements OnInit {
 
   get currentClip(): Clip | undefined {
     return this.clips[this.currentClipIndex];
+  }
+
+  getEmbedUrl(clipSlug: string): SafeResourceUrl {
+    const url = `https://clips.twitch.tv/embed?clip=${clipSlug}&parent=localhost`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
