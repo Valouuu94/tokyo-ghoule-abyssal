@@ -50,13 +50,27 @@
 }
 
 .card-humans{
-    background-image: url('../../medias/card-human-profil.png');
+    background-image: url('../../medias/card-profil-human.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     width: 510px;
     height: 335px;
     & .card-humans-image{
+        width: 120px;
+        height: 130px;
+        border: 2px solid #7A0014;
+    }
+}
+
+.card-ghouls{
+    background-image: url('../../medias/card-profil-ghoul.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 510px;
+    height: 335px;
+    & .card-ghouls-image{
         width: 120px;
         height: 130px;
         border: 2px solid #7A0014;
