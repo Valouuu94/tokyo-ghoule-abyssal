@@ -35,6 +35,7 @@
     border: 5px solid #201f17;
 }
 
+
 .card-ccg{
     background-image: url('../../medias/card-profil-ccg-empty.png');
     background-size: cover;
@@ -46,6 +47,10 @@
         width: 120px;
         height: 130px;
         border: 2px solid #7A0014;
+    }
+    & .id-card{
+        margin-top: 290px;
+        margin-left: 60px;
     }
 }
 
@@ -61,5 +66,26 @@
         height: 130px;
         border: 2px solid #7A0014;
     }
+    & .id-card{
+        margin-top: 290px;
+        margin-left: -222px;
+    }
 }
 
+.card-ghoules{
+    background-image: url('../../medias/card-profil-goule-empty.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 510px;
+    height: 335px;
+    & .card-ghoules-image{
+        width: 120px;
+        height: 130px;
+        border: 2px solid #FFF;
+    }
+    & .id-card{
+        margin-top: 280px;
+        margin-left: 60px;
+    }
+}
