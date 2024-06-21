@@ -6,11 +6,16 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import {firebaseConfig} from '../app/firebase.config';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
-    provideFirebaseApp(() => initializeApp({"projectId":"abyssal-tkg","appId":"1:591908580752:web:d095a7b93a1333cf211715","storageBucket":"abyssal-tkg.appspot.com","apiKey":"AIzaSyBzwtFQIqbGhu2ROVUDMlI1gbQkC2fE3bQ","authDomain":"abyssal-tkg.firebaseapp.com","messagingSenderId":"591908580752","measurementId":"G-L0BG9RDTW9"})), provideFirestore(() => getFirestore()), provideAnimationsAsync()]
+    provideRouter(routes),
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
+    provideFirebaseApp(() => initializeApp(firebaseConfig)), 
+    provideFirestore(() => getFirestore()), 
+    provideAnimationsAsync()]
 };
