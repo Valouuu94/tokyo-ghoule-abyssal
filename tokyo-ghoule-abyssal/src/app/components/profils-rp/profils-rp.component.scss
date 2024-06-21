@@ -35,7 +35,6 @@
     border: 5px solid #201f17;
 }
 
-
 .card-ccg{
     background-image: url('../../medias/card-profil-ccg-empty.png');
     background-size: cover;
@@ -47,15 +46,15 @@
         width: 120px;
         height: 130px;
         border: 2px solid #7A0014;
+        & .img-card {
+            max-width: -moz-available;
+        }
     }
-    & .id-card{
-        margin-top: 290px;
-        margin-left: 60px;
-    }
+
 }
 
 .card-humans{
-    background-image: url('../../medias/card-human-profil.png');
+    background-image: url('../../medias/card-profil-human.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -65,27 +64,69 @@
         width: 120px;
         height: 130px;
         border: 2px solid #7A0014;
-    }
-    & .id-card{
-        margin-top: 290px;
-        margin-left: -222px;
+        & .img-card {
+            max-width: -moz-available;
+        }
     }
 }
 
-.card-ghoules{
-    background-image: url('../../medias/card-profil-goule-empty.png');
+.card-ghouls{
+    background-image: url('../../medias/card-profil-ghoul.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     width: 510px;
     height: 335px;
-    & .card-ghoules-image{
+    & .card-ghouls-image{
         width: 120px;
         height: 130px;
-        border: 2px solid #FFF;
+        border: 2px solid #ffffff;
+        & .img-card {
+            max-width: -moz-available;
+        }
     }
-    & .id-card{
-        margin-top: 280px;
-        margin-left: 60px;
+}
+
+.card {
+    perspective: 1000px; 
+    position: relative;
+    transition: transform 1s; 
+}
+
+.card-ghouls, .card-humans, .card-ccg {
+    transform-style: preserve-3d; 
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+    .card-front {
+        visibility: hidden;
     }
+    .card-back {
+        scale: 1.1;
+    }
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    z-index: 2; 
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    z-index: 1; 
+    background-color: #1e1c1d;
+    backface-visibility: hidden;
+
+}
+.nav-btn{
+    background-color: #201f17;
+    color: #F5F5F5;
+    font-size: 21px;
 }
