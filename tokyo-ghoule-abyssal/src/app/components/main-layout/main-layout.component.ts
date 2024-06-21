@@ -4,12 +4,13 @@ import { ClipsPageComponent } from "../clips-page/clips-page.component";
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
+import { RouterOutlet } from '@angular/router';
 @Component({
     selector: 'app-main-layout',
     standalone: true,
     templateUrl: './main-layout.component.html',
     styleUrl: './main-layout.component.scss',
-    imports: [NavBarComponent, ClipsPageComponent, NgIf, FooterComponent]
+    imports: [NavBarComponent, ClipsPageComponent, NgIf, FooterComponent , RouterOutlet]
 })
 export class MainLayoutComponent {
     constructor(

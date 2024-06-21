@@ -1,0 +1,16 @@
+<h1 class="text-center">AJOUTER UN CLIP</h1>
+
+<div class="flex-column justify-content-center">
+    <div class="flex flex-column gap-2 pb-3">
+        <label for="clip-url">URL du clip Twitch</label>
+        <input 
+            pInputText
+            id="clip-url" 
+            aria-describedby="clip-url-help" 
+            [(ngModel)]="clipUrl" />
+    </div>
+    <div class="flex justify-content-center">
+        <button>ANNULER</button>
+        <button (click)="addClip()">AJOUTER</button>
+    </div>
+</div>

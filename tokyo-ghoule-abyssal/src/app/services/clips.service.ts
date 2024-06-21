@@ -1,15 +1,22 @@
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Clip } from '../models/clip.model';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class ClipsService {
-    constructor(private db: Firestore) { }
+    private dbPath = '/clips';
 
-    getData(): Observable<any[]> {
-        const clips = collection(this.db, 'clips');
-        return collectionData(this.db, clips);
+    clipsRef: AngularFirestoreCollection<Clip>;
+
+    constructor(private db: AngularFirestore) {
+        this.clipsRef = db.collection(this.dbPath);
+    }
+
+    getAll(): AngularFirestoreCollection<Clip> {
+        console.log('ClipsService.getAll()', this.clipsRef);
+        return this.clipsRef;
     }
 }

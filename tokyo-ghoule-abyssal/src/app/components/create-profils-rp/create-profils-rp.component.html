@@ -1,0 +1,28 @@
+<form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+    <label>Nom et Prénom:</label>
+    <input type="text" formControlName="fullName">
+
+    <label>Date de naissance:</label>
+    <input type="text" formControlName="dateOfBirth">
+
+    <label>Description:</label>
+    <input formControlName="description">
+
+    <label>Rang:</label>
+    <input type="text" formControlName="rank">
+
+    <label>Type:</label>
+    <select formControlName="type" (change)="onTypeChange($event)">
+        <option value="CCG">CCG</option>
+        <option value="Ghoul">Ghoul</option>
+        <option value="Human">Humain</option>
+    </select>
+    <div *ngIf="isGhoul">
+        <label>Kagune:</label>
+        <input type="text" formControlName="kagune">
+
+        <label>Type de Kagune:</label>
+        <input type="text" formControlName="typeKagune">
+    </div>
+    <button type="submit">Créer le profil</button>
+</form>
