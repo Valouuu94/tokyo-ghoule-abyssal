@@ -13,19 +13,27 @@
         <h2 class="font-manga text-3xl font-red-bold"> C.C.G </h2>
         <div class="flex flex-row align-items-center gap-4">
             <div *ngFor="let profile of ccgProfiles" class="card-ccg card flex flex-row align-items-center justify-content-left mt-2">
-                <div class="card-face card-front">
+                <div class="card-face card-front flex flex-row align-items-center">
                     <div class="card-ccg-image mx-3">
-                        <img [src]="profile.imageUrl" alt="Profile Image">
+                        <img [src]="profile.image" alt="Profile Image" class="img-card">
                     </div>
                     <div class="card-ccg-content flex flex-column align-items-left">
-                        <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
+                        <div class="flex flex-column">
+                            <p class="font-manga font-red-bold mb-0">Nom Prénom :</p>
+                            <p class="font-manga font-red-bold m-0">{{ profile.name }}</p>
+                        </div>
                         <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
                         <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
                     </div>
                 </div>
-                <div class="card-face card-back">
-                    <!-- Contenu de la face arrière -->
-                    <p class="font-manga font-red-bold">Infos supplémentaires...</p>
+                <div class="card-face card-back card-back-ccg">
+                  <div class="card-ccg-content flex flex-column align-items-left px-4">
+                        <p class="font-manga font-red-bold flex justify-content-center">Informations :</p>
+                        <p class="font-manga font-red-bold">Kagune : {{ profile.kagune }}</p>
+                        <p class="font-manga font-red-bold">Type Kagune : {{ profile.typeKagune }}</p>
+                        <p class="font-manga font-red-bold">Caractere : {{ profile.caractere }}</p>
+                        <p class="font-manga font-red-bold">Description: {{ profile.description }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,11 +54,10 @@
                     </div>
                 </div>
                 <div class="card-face card-back">
-                    <div class="card-humans-content flex flex-column align-items-left px-4">
+                    <div class="card-ghoul-content flex flex-column align-items-left px-4">
                         <p class="font-manga text-white flex justify-content-center">Informations :</p>
                         <p class="font-manga text-white">Kagune : {{ profile.kagune }}</p>
                         <p class="font-manga text-white">Type Kagune : {{ profile.typeKagune }}</p>
-
                         <p class="font-manga text-white">Caractere : {{ profile.caractere }}</p>
                         <p class="font-manga text-white">Description: {{ profile.description }}</p>
                     </div>
@@ -63,13 +70,25 @@
         <h2 class="font-manga text-3xl font-red-bold"> Humains </h2>
         <div class="flex flex-row align-items-center gap-4">
             <div *ngFor="let profile of humanProfiles" class="card-humans card flex flex-row align-items-center justify-content-left mt-2">
-                <div class="card-humans-image mx-3">
-                    <img [src]="profile.imageUrl" alt="Profile Image">
+                <div class="card-face card-front flex flex-row align-items-center">
+                    <div class="card-humans-image mx-3">
+                        <img [src]="profile.image" alt="Profile Image" class="img-card">
+                    </div>
+                    <div class="card-humans-content flex flex-column align-items-left">
+                        <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
+                        <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
+                        <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
+                    </div>
                 </div>
-                <div class="card-humans-content flex flex-column align-items-left">
-                    <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
-                    <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
-                    <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
+                <div class="card-face card-back">
+                    <div class="card-humans-content flex flex-column align-items-left px-4">
+                        <p class="font-manga text-white flex justify-content-center">Informations :</p>
+                        <p class="font-manga text-white">Kagune : {{ profile.kagune }}</p>
+                        <p class="font-manga text-white">Type Kagune : {{ profile.typeKagune }}</p>
+
+                        <p class="font-manga text-white">Caractere : {{ profile.caractere }}</p>
+                        <p class="font-manga text-white">Description: {{ profile.description }}</p>
+                    </div>
                 </div>
             </div>
         </div>

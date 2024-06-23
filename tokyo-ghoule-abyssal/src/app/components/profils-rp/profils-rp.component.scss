@@ -46,8 +46,9 @@
         width: 120px;
         height: 130px;
         border: 2px solid #7A0014;
-        & .img-card {
-            max-width: -moz-available;
+        & .img-card{
+            max-width: 120px;
+            max-height: 130px;
         }
     }
 
@@ -65,7 +66,8 @@
         height: 130px;
         border: 2px solid #7A0014;
         & .img-card {
-            max-width: -moz-available;
+            max-width: 120px;
+            max-height: 130px;
         }
     }
 }
@@ -82,7 +84,8 @@
         height: 130px;
         border: 2px solid #ffffff;
         & .img-card {
-            max-width: -moz-available;
+            max-width: 120px;
+            max-height: 130px;
         }
     }
 }
@@ -125,6 +128,10 @@
     backface-visibility: hidden;
 
 }
+.card-back-ccg {
+    background-color: #d9d9d9 !important;
+}
+
 .nav-btn{
     background-color: #201f17;
     color: #F5F5F5;
