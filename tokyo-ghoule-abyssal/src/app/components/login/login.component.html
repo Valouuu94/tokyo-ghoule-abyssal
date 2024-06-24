@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="">
+    <ng-template #notLoggedIn>
+    <button
+        class="discord-login flex align-items-center gap-2 p-2 mt-3"
+        (click)="login()"
+    >
+        <app-discord-icon></app-discord-icon>
+        <span class="text-sm font-manga pb-1">Se connecter avec Discord</span>
+    </button>
+    </ng-template>
+    <div *ngIf="user; else notLoggedIn" class="flex flex-row align-items-center gap-4 mt-2">
+        <h2>Welcome, {{ user.username }}</h2>
+        <img [src]="user.avatar ? 'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png' : 'default-avatar.png'" alt="User Avatar" class="h-3rem border-round-3xl">
+        <button
+            class="discord-logout"
+            (click)="logout()"
+        >
+            <span class="text-sm font-manga font-bold p-1">Se Déconnecter</span>
+        </button>
+    </div>
+</div>
