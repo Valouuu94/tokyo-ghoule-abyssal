@@ -1,0 +1,63 @@
+@import "primeicons/primeicons.css";
+
+.nav-btn-clip {
+    background-color: #201f17;
+    color: #F5F5F5;
+    font-size: 18px;
+}
+
+.container-banner {
+    background-color: white;
+    height: 300px;
+    border-top: solid 5px #201f17;
+    border-bottom: solid 5px #201f17;
+    margin-left: -50px;
+    margin-right: -50px;
+    margin-top: 10%;
+    margin-bottom: 15%;
+    position: relative;
+}
+
+.clip-container {
+    background-color: white;
+    height: 600px;
+    width: 40%;
+    border: solid 5px #201f17;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.img-suzuya-pc {
+    height: 432px;
+    margin-top: -142px;
+    margin-left: 8%;
+    transform: scaleX(-1);
+}
+
+.nav-clip-btn {
+    background-color: #201f17;
+    color: #F5F5F5;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.change-clips {
+    position: absolute;
+    top: 28%;
+    left: 88%;
+}
+
+.pi {
+    cursor: pointer;
+}
+
+.pi-heart-fill {
+    color: red;
+}

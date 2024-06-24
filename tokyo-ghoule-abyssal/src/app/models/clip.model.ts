@@ -3,4 +3,5 @@ export interface Clip {
     title: string;
     likes: number;
     report: number;
+    id: string;
 }

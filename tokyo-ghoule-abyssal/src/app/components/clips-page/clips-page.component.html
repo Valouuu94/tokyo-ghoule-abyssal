@@ -1,51 +1,50 @@
+<div class="separator my-4"></div>
+
 <div class="justify-content-center">
-    <div class="flex align-content-center justify-content-center align-items-center">
-        <p>Clip unique</p>
-        <p-inputSwitch [(ngModel)]="isAllClips" class="px-3"/>
-        <p>Tous les clips</p>  
+    <div class="flex justify-content-center">
+        <a routerLink="/clips/add-clip" class="nav-btn-clip no-underline px-2 pt-2 pb-2 mt-2 mb-4 font-manga">Ajoute un clip Twitch</a>
     </div>
-
-    <button [routerLink]="['/clips/add-clip']">Ajouter un clip</button>
-
-    <div *ngIf="!isAllClips">
-        <div *ngIf="currentClip as clip; else loading" class="flex align-content-center justify-content-center">
-            <div>
-            <h3 class="text-center">{{ clip.title }}</h3>
-            <iframe
-                [src]="getEmbedUrl(clip.clipSlug)"
-                frameborder="0"
-                allowfullscreen="true"
-                scrolling="no"
-                height="378"
-                width="620">
-            </iframe>
-            <p>Likes: {{ clip.likes }}</p>
-            <p>Reports: {{ clip.report }}</p>
-        </div>
-        </div>
-        <div class="flex align-content-center justify-content-center">
-            <button (click)="showPreviousClip()" [disabled]="currentClipIndex === 0">Previous</button>
-            <button (click)="showNextClip()">Next</button>
-        </div>
-        </div>
     
-      <div *ngIf="isAllClips" class="grid">
-        <div *ngFor="let clip of clips" class="flex col justify-content-center">
-            <div>
-                <h3>{{ clip.title }}</h3>
-                <iframe
-                    [src]="getEmbedUrl(clip.clipSlug)"
-                    frameborder="0"
-                    allowfullscreen="true"
-                    scrolling="no"
-                    height="378"
-                    width="620">
-                </iframe>
-                <p>Likes: {{ clip.likes }}</p>
-                <p>Reports: {{ clip.report }}</p>
+    <div class="container-banner">
+        <img src="../../medias/suzuya-popcorn.png" class="img-suzuya-pc" alt="">
+        <div class="clip-container">
+            <div *ngIf="!isAllClips" class="mt-5">
+                <div *ngIf="currentClip as clip; else loading" class="flex align-content-center justify-content-center">
+                    <div>
+                    <h3 class="text-center">{{ clip.title }}</h3>
+                    <iframe
+                        [src]="getEmbedUrl(clip.clipSlug)"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        scrolling="no"
+                        height="378"
+                        width="620">
+                    </iframe>
+                    <div class="mt-4">
+                        <i [ngClass]="{'pi-heart': !liked, 'pi-heart-fill': liked}" 
+                            class="pi" 
+                            (click)="toggleLike()"> 
+                            {{ clip.likes }}
+                        </i>
+                    </div>
+                    <div class="mt-4">
+                        <i [ngClass]="{'pi-flag': !reported, 'pi-flag-fill': reported}" 
+                            class="pi"
+                            (click)="toggleReport()"> 
+                            {{ clip.report }}
+                        </i>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
+        <div class="flex flex-column change-clips align-items-center">
+            <button class="nav-clip-btn" (click)="showPreviousClip()" [disabled]="currentClipIndex === 0">⬆</button>
+            <button class="nav-clip-btn" (click)="showNextClip()">⬇</button>
+        </div>
     </div>
+
+    <div class="separator my-4"></div>
 
     <ng-template #loading>
         <p>Loading...</p>

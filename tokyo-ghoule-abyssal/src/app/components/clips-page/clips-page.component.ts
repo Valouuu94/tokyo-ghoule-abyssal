@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Clip } from '../../models/clip.model';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable, from } from 'rxjs';
+import { Firestore, collection, collectionData, doc, updateDoc, getDocs, getDoc, DocumentData } from '@angular/fire/firestore';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
@@ -24,7 +24,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     FormsModule, 
     DialogModule, 
     ButtonModule, 
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './clips-page.component.html',
   styleUrl: './clips-page.component.scss'
@@ -37,11 +37,19 @@ export class ClipsPageComponent implements OnInit {
   shuffledIndices: number[] = [];
   isAllClips: boolean = false;
   addClipVisible: boolean = false;
+  liked: boolean = false;
+  reported: boolean = false;
+  @Input() clip!: Clip;
 
   constructor(private firestore: Firestore, private sanitizer: DomSanitizer) {
     const clipsCollection = collection(this.firestore, 'clips');
-    this.clips$ = collectionData(clipsCollection).pipe(
-      map(data => data as Clip[])
+    this.clips$ = from(getDocs(clipsCollection)).pipe(
+      map(snapshot => 
+        snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }) as Clip)
+      )
     );
   }
 
@@ -87,5 +95,69 @@ export class ClipsPageComponent implements OnInit {
   getEmbedUrl(clipSlug: string): SafeResourceUrl {
     const url = `https://clips.twitch.tv/embed?clip=${clipSlug}&parent=localhost`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  async toggleLike() {
+    const clip = this.currentClip;
+    if (!clip) {
+      console.error('No clip is currently loaded');
+      return;
+    }
+    try {
+      const clipDocRef = doc(this.firestore, 'clips', clip.id);
+      const clipDoc = await getDoc(clipDocRef);
+
+      if (clipDoc.exists()) {
+        const clipData = clipDoc.data() as DocumentData;
+        const currentLikes = clipData['likes'] || 0;
+        this.liked = !this.liked;
+        const newLikes = this.liked ? currentLikes + 1 : currentLikes - 1;
+
+        await updateDoc(clipDocRef, { likes: newLikes });
+
+        const clipIndex = this.clips.findIndex(c => c.id === clip.id);
+        if (clipIndex !== -1) {
+          this.clips[clipIndex].likes = newLikes;
+        }
+
+        console.log('Likes updated:', newLikes);
+      } else {
+        console.error('Clip not found');
+      }
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    }
+  }
+
+  async toggleReport() {
+    const clip = this.currentClip;
+    if (!clip) {
+      console.error('No clip is currently loaded');
+      return;
+    }
+    try {
+      const clipDocRef = doc(this.firestore, 'clips', clip.id);
+      const clipDoc = await getDoc(clipDocRef);
+
+      if (clipDoc.exists()) {
+        const clipData = clipDoc.data() as DocumentData;
+        const currentReports = clipData['report'] || 0;
+        this.reported = !this.reported;
+        const newReports = this.reported ? currentReports + 1 : currentReports - 1;
+
+        await updateDoc(clipDocRef, { report: newReports });
+
+        const clipIndex = this.clips.findIndex(c => c.id === clip.id);
+        if (clipIndex !== -1) {
+          this.clips[clipIndex].report = newReports;
+        }
+
+        console.log('Reports updated:', newReports);
+      } else {
+        console.error('Clip not found');
+      }
+    } catch (error) {
+      console.error('Error updating reports :', error);
+    }
   }
 }
