@@ -10,7 +10,9 @@
             [(ngModel)]="clipUrl" />
     </div>
     <div class="flex justify-content-center">
-        <button>ANNULER</button>
-        <button (click)="addClip()">AJOUTER</button>
+        <button (click)="goBack()" class="action-btn no-underline px-2 pt-2 pb-2 mt-2 mb-4 font-manga">ANNULER</button>
+        <button (click)="addClip()" class="action-btn no-underline px-2 pt-2 pb-2 mt-2 mb-4 font-manga">AJOUTER</button>
     </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
 </div>
