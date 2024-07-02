@@ -9,7 +9,7 @@
     </button>
     </ng-template>
     <div *ngIf="user; else notLoggedIn" class="flex flex-row align-items-center gap-4 mt-2">
-        <h2>Welcome, {{ user.username }}</h2>
+        <h2 class="font-manga">Welcome, {{ user.username }}</h2>
         <img [src]="user.avatar ? 'https://cdn.discordapp.com/avatars/' + user.id + '/' + user.avatar + '.png' : 'default-avatar.png'" alt="User Avatar" class="h-3rem border-round-3xl">
         <button
             class="discord-logout"

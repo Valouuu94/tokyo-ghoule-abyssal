@@ -1,0 +1,26 @@
+.background-banner{
+    background-color: white;
+    height:180px;
+    border: solid 5px #201f17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.component-lore-and-guide{
+    margin: 30px 150px 0 150px;
+}
+
+.faction-cat {
+    background-image: url("../../medias/background-faction.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
