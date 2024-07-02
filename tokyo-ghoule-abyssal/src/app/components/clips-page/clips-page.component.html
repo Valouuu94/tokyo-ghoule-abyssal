@@ -1,6 +1,7 @@
 <div class="separator my-4"></div>
 
 <div class="justify-content-center">
+    <div class="font-manga font-red-bold text-3xl flex justify-content-center"> CETTE PAGE EST EN MAINTENANCE POUR LAJOUT DE CLIP MEDAL</div>
     <div class="flex justify-content-center flex-column align-items-center">
         <a routerLink="/clips/add-clip" class="nav-btn-clip no-underline px-2 pt-2 pb-2 mt-2 mb-4 font-manga">Ajoute un clip Twitch</a>
         <div class="font-manga font-red-bold"> Les clips Medal arrivent bientot ne vous inquietez pas !</div>
@@ -9,7 +10,7 @@
     <div class="container-banner">
         <img src="../../medias/suzuya-popcorn.png" class="img-suzuya-pc" alt="">
         <div class="clip-container">
-            <div *ngIf="!isAllClips" class="mt-5">
+           <!--  <div *ngIf="!isAllClips" class="mt-5">
                 <div *ngIf="currentClip as clip; else loading" class="flex align-content-center justify-content-center">
                     <div>
                     <h3 class="text-center">{{ clip.title }}</h3>
@@ -37,12 +38,12 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="flex flex-column change-clips align-items-center">
+        <!-- <div class="flex flex-column change-clips align-items-center">
             <button class="nav-clip-btn" (click)="showPreviousClip()" [disabled]="currentClipIndex === 0">⬆</button>
             <button class="nav-clip-btn" (click)="showNextClip()">⬇</button>
-        </div>
+        </div> -->
     </div>
 
     <div class="separator my-4"></div>
