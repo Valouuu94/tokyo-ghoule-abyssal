@@ -32,10 +32,11 @@ export class CreateProfilsRpComponent {
         fullName: ['', Validators.required],
         dateOfBirth: ['', Validators.required],
         description: [''],
-        type: ['CCG', Validators.required],
+        type: ['', Validators.required],
         kagune: [''],
         typeKagune: [''],
-        rank: ['']
+        rank: [''],
+        caractere: [''],
         });
     }
 
@@ -52,7 +53,8 @@ export class CreateProfilsRpComponent {
         kagune: formData.kagune,
         typeKagune: formData.typeKagune,
         rank: formData.rank,
-        image: ''
+        image: '',
+        caractere: formData.caractere,
       };
 
       if (this.selectedFile) {
@@ -65,19 +67,18 @@ export class CreateProfilsRpComponent {
             fileRef.getDownloadURL().subscribe((url) => {
               profil.image = url;
               addDoc(profilsCollection, profil).then(() => {
-                console.log('Document ajouté avec succès !');
+                console.log('Document ajouté avec succès !', profil);
                 this.profilForm.reset();
                 this.profilForm.patchValue({ type: 'CCG' });
                 this.selectedFile = null;
-              }).catch((error) => {
-                console.error('Erreur lors de l\'ajout du document : ', error);
-              });
+              })
             });
           })
         ).subscribe();
       } else {
         addDoc(profilsCollection, profil).then(() => {
-          console.log('Document ajouté avec succès !');
+          console.log('Document ajouté avec succès !', profil);
+
           this.profilForm.reset();
           this.profilForm.patchValue({ type: 'CCG' });
         }).catch((error) => {

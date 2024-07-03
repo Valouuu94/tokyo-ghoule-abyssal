@@ -11,7 +11,6 @@
     font-size: 28px !important;
     font-family: "Yuji Syuku", serif;
     font-weight: 400;
-    font-style: normal;
 }
 
 ::ng-deep .p-checkbox {
@@ -35,65 +34,40 @@
     border: 5px solid #201f17;
 }
 
-.card-ccg{
+.card-ccg {
     background-image: url('../../medias/card-profil-ccg-empty.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    width: 510px;
-    height: 335px;
-    & .card-ccg-image{
-        width: 120px;
-        height: 130px;
-        border: 2px solid #7A0014;
-        & .img-card{
-            max-width: 120px;
-            max-height: 130px;
-        }
-    }
-
 }
 
-.card-humans{
+.card-humans {
     background-image: url('../../medias/card-profil-human.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    width: 510px;
-    height: 335px;
-    & .card-humans-image{
-        width: 120px;
-        height: 130px;
-        border: 2px solid #7A0014;
-        & .img-card {
-            max-width: 120px;
-            max-height: 130px;
-        }
-    }
 }
 
-.card-ghouls{
+.card-ghouls {
     background-image: url('../../medias/card-profil-ghoul.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    width: 510px;
-    height: 335px;
-    & .card-ghouls-image{
-        width: 120px;
-        height: 130px;
-        border: 2px solid #ffffff;
-        & .img-card {
-            max-width: 120px;
-            max-height: 130px;
-        }
+
+    &-image {
+        border-color: #ffffff;
     }
 }
 
 .card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 510px;
+    height: 335px;
     perspective: 1000px; 
     position: relative;
-    transition: transform 1s; 
+    transition: transform 1s;
+    &-image {
+        width: 120px;
+        height: 130px;
+        border: 2px solid #7A0014;
+        .img-card {
+            max-width: 120px;
+            max-height: 130px;
+        }
+    }
 }
 
 .card-ghouls, .card-humans, .card-ccg {

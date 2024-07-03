@@ -14,7 +14,7 @@
         <div class="flex flex-row align-items-center gap-4">
             <div *ngFor="let profile of ccgProfiles" class="card-ccg card flex flex-row align-items-center justify-content-left mt-2">
                 <div class="card-face card-front flex flex-row align-items-center">
-                    <div class="card-ccg-image mx-3">
+                    <div class="card-image mx-3">
                         <img [src]="profile.image" alt="Profile Image" class="img-card">
                     </div>
                     <div class="card-ccg-content flex flex-column align-items-left">
@@ -29,8 +29,6 @@
                 <div class="card-face card-back card-back-ccg">
                   <div class="card-ccg-content flex flex-column align-items-left px-4">
                         <p class="font-manga font-red-bold flex justify-content-center">Informations :</p>
-                        <p class="font-manga font-red-bold">Kagune : {{ profile.kagune }}</p>
-                        <p class="font-manga font-red-bold">Type Kagune : {{ profile.typeKagune }}</p>
                         <p class="font-manga font-red-bold">Caractere : {{ profile.caractere }}</p>
                         <p class="font-manga font-red-bold">Description: {{ profile.description }}</p>
                     </div>
@@ -44,7 +42,7 @@
         <div class="flex flex-row align-items-center gap-6 flex-wrap">
             <div *ngFor="let profile of ghoulProfiles" class="card-ghouls card flex flex-row align-items-center justify-content-left mt-2">
                 <div class="card-face card-front flex flex-row align-items-center">
-                    <div class="card-ghouls-image mx-3">
+                    <div class="card-image mx-3">
                         <img [src]="profile.image" alt="Profile Image" class="img-card">
                     </div>
                     <div class="card-ghouls-content flex flex-column align-items-left">
@@ -71,22 +69,18 @@
         <div class="flex flex-row align-items-center gap-4">
             <div *ngFor="let profile of humanProfiles" class="card-humans card flex flex-row align-items-center justify-content-left mt-2">
                 <div class="card-face card-front flex flex-row align-items-center">
-                    <div class="card-humans-image mx-3">
+                    <div class="card-image mx-3">
                         <img [src]="profile.image" alt="Profile Image" class="img-card">
                     </div>
                     <div class="card-humans-content flex flex-column align-items-left">
                         <p class="font-manga font-red-bold">Nom Prénom : {{ profile.name }}</p>
-                        <p class="font-manga font-red-bold">Rang : {{ profile.rank }}</p>
                         <p class="font-manga font-red-bold">Date de naissance : {{ profile.datebirth }}</p>
+                        <p class="font-manga font-red-bold">Caractere : {{ profile.caractere }}</p>
                     </div>
                 </div>
                 <div class="card-face card-back">
                     <div class="card-humans-content flex flex-column align-items-left px-4">
                         <p class="font-manga text-white flex justify-content-center">Informations :</p>
-                        <p class="font-manga text-white">Kagune : {{ profile.kagune }}</p>
-                        <p class="font-manga text-white">Type Kagune : {{ profile.typeKagune }}</p>
-
-                        <p class="font-manga text-white">Caractere : {{ profile.caractere }}</p>
                         <p class="font-manga text-white">Description: {{ profile.description }}</p>
                     </div>
                 </div>

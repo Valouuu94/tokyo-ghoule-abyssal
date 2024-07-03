@@ -8,4 +8,5 @@ export interface ProfilsRp {
     type: string;
     kagune: string;
     typeKagune: string;
+    caractere: string;
 }
