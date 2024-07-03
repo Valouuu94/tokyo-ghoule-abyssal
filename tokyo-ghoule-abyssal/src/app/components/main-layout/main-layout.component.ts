@@ -18,4 +18,8 @@ export class MainLayoutComponent {
     constructor(
         public router: Router,
     ){}
+
+ navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
 }
