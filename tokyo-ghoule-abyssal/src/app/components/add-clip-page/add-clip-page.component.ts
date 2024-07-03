@@ -50,7 +50,7 @@ export class AddClipPageComponent {
     }
 
     const clipId = this.extractClipId(this.clipUrl);
-    if (clipId) {
+   /*  if (clipId) {
       try {
         this.twitchClipService.getClipTitle(clipId).subscribe(async response => {
           if (response.data && response.data.length > 0) {
@@ -74,7 +74,7 @@ export class AddClipPageComponent {
       }
     } else {
       this.errorMessage = "URL non valide, veuillez réessayer";
-    }
+    } */
   }
 
   isValidLink(link: string): boolean {
