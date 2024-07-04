@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireStorageModule  } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-create-profils-rp',
@@ -19,12 +20,14 @@ export class CreateProfilsRpComponent {
     profilForm!: FormGroup;
     isGhoul: boolean = false;
     selectedFile: File | null = null;
-
+    isLogged: boolean = false;
+    usernameuser: string = '';
     constructor(
     private fb: FormBuilder,
     private router: Router,
     private firestore: Firestore,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    public authService: AuthService
     ) {}
 
     ngOnInit(): void {
@@ -38,10 +41,16 @@ export class CreateProfilsRpComponent {
         rank: [''],
         caractere: [''],
         });
+
+        this.authService.user$.subscribe(user => {
+          this.isLogged = !!user;
+          this.usernameuser = user?.username;   
+        });
+        
     }
 
     onSubmit(): void {
-    if (this.profilForm.valid) {
+    if (this.profilForm.valid && this.authService.isLoggedIn) {
       const formData = this.profilForm.value;
       const profilsCollection = collection(this.firestore, 'profils-rp');
 
@@ -55,6 +64,7 @@ export class CreateProfilsRpComponent {
         rank: formData.rank,
         image: '',
         caractere: formData.caractere,
+        username: this.usernameuser,
       };
 
       if (this.selectedFile) {

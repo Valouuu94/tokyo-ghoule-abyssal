@@ -9,4 +9,5 @@ export interface ProfilsRp {
     kagune: string;
     typeKagune: string;
     caractere: string;
+    username: string;
 }

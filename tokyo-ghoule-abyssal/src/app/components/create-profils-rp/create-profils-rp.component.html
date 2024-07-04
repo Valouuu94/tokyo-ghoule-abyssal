@@ -1,58 +1,62 @@
 <div class="page-create-profils w-full flex justify-content-center">
-    <div class="form-create-profils-container flex justify-content-center align-items-center">
-        <form [formGroup]="profilForm" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 w-full justify-content-center align-items-center">
-
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Nom et Prénom:</label>
-                <input type="text" formControlName="fullName">
-            </div>
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Date de naissance:</label>
-                <input type="text" formControlName="dateOfBirth">
-            </div>
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Description:</label>
-                <input formControlName="description">
-            </div>
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Rang:</label>
-                <input type="text" formControlName="rank">
-            </div>
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Caractère:</label>
-                <input type="text" formControlName="caractere">
-            </div>
-
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Image URL:</label>
-                <input type="text" formControlName="image">
-            </div>
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Upload Image:</label>
-                <input type="file" (change)="onFileSelected($event)">
-            </div>
-
-            <div class="flex w-full flex-column gap-2 font-manga">
-                <label>Type de ton personnage:</label>
-                <select formControlName="type" (change)="onTypeChange($event)">
-                    <option value="CCG">CCG</option>
-                    <option value="Ghoul">Ghoul</option>
-                    <option value="Human">Humain</option>
-                </select>
-            </div>
-            <div *ngIf="isGhoul" class="flex flex-row w-full gap-2 font-manga">
-                <div class="flex w-full flex-column gap-2">
-                    <label>Kagune:</label>
-                    <input type="text" formControlName="kagune">
+    <div *ngIf="isLogged">
+        <div class="form-create-profils-container flex justify-content-center align-items-center">
+            <form [formGroup]="profilForm" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 w-full justify-content-center align-items-center">
+                
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Nom et Prénom:</label>
+                    <input type="text" formControlName="fullName">
                 </div>
-                <div class="flex w-full flex-column gap-2">
-                    <label>Type de Kagune:</label>
-                    <input type="text" formControlName="typeKagune">
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Date de naissance:</label>
+                    <input type="text" formControlName="dateOfBirth">
                 </div>
-            </div>
-            <button type="submit" class="font-manga btn-create-profil px-5 pt-2 pb-3">Créer le profil</button>
-        </form>
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Description:</label>
+                    <input formControlName="description">
+                </div>
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Rang:</label>
+                    <input type="text" formControlName="rank">
+                </div>
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Caractère:</label>
+                    <input type="text" formControlName="caractere">
+                </div>
+
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Image URL:</label>
+                    <input type="text" formControlName="image">
+                </div>
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Upload Image:</label>
+                    <input type="file" (change)="onFileSelected($event)">
+                </div>
+
+                <div class="flex w-full flex-column gap-2 font-manga">
+                    <label>Type de ton personnage:</label>
+                    <select formControlName="type" (change)="onTypeChange($event)">
+                        <option value="CCG">CCG</option>
+                        <option value="Ghoul">Ghoul</option>
+                        <option value="Human">Humain</option>
+                    </select>
+                </div>
+                <div *ngIf="isGhoul" class="flex flex-row w-full gap-2 font-manga">
+                    <div class="flex w-full flex-column gap-2">
+                        <label>Kagune:</label>
+                        <input type="text" formControlName="kagune">
+                    </div>
+                    <div class="flex w-full flex-column gap-2">
+                        <label>Type de Kagune:</label>
+                        <input type="text" formControlName="typeKagune">
+                    </div>
+                </div>
+                <div class="font-manga font-red-bold text-xl flex justify-content-center"> Nous avons votre username discord en cas de création de perso, donc ne jouez pas au plus malin au risque d'etre sanctionné/ban</div>
+                <button type="submit" class="font-manga btn-create-profil px-5 pt-2 pb-3">Créer le profil</button>
+            </form>
+        </div>
     </div>
+    <div *ngIf="!isLogged" class="font-manga font-red-bold text-3xl mt-5"> Pour créer votre carte de personnage vous devez etre conecté a discord ! </div>
 </div>
 
 
