@@ -14,6 +14,9 @@
                 <div class="flex w-full flex-column gap-2 font-manga">
                     <label>Description:</label>
                     <input formControlName="description">
+                     <div *ngIf="profilForm.controls['description'].hasError('maxlength')" class="error-message font-red-bold">
+                        ATTENTION 190 caractères maximum
+                    </div>
                 </div>
                 <div class="flex w-full flex-column gap-2 font-manga">
                     <label>Rang:</label>
@@ -45,10 +48,6 @@
                     <div class="flex w-full flex-column gap-2">
                         <label>Kagune:</label>
                         <input type="text" formControlName="kagune">
-                    </div>
-                    <div class="flex w-full flex-column gap-2">
-                        <label>Type de Kagune:</label>
-                        <input type="text" formControlName="typeKagune">
                     </div>
                 </div>
                 <div class="font-manga font-red-bold text-xl flex justify-content-center"> Nous avons votre username discord en cas de création de perso, donc ne jouez pas au plus malin au risque d'etre sanctionné/ban</div>

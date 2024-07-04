@@ -34,7 +34,7 @@ export class CreateProfilsRpComponent {
         this.profilForm = this.fb.group({
         fullName: ['', Validators.required],
         dateOfBirth: ['', Validators.required],
-        description: [''],
+        description: ['', [Validators.maxLength(190)]],
         type: ['', Validators.required],
         kagune: [''],
         typeKagune: [''],
